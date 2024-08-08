@@ -22,7 +22,7 @@ const io = new Server(server, {
 });
 
 
-const url = `mongodb+srv://${configEnv.db_username}:${configEnv.db_password}@${configEnv.db_name}.${configEnv.db_id}.mongodb.net/${configEnv.db_Name}?retryWrites=true&w=majority&appName=${configEnv.db_Name}`;
+const url = configEnv.database_uri;
 
 
 app.use(express.json());
@@ -46,6 +46,7 @@ app.get("/", (req, res)=>{
 // Socket.IO connection handler
 io.on('connection', (socket) => {
     socket.on('message', (data, username) => {
+        console.log(data)
         io.emit('message', {data, username}); // Broadcast the message to all clients 
     });
 
