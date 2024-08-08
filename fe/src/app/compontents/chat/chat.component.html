@@ -1,0 +1,14 @@
+<div class="chat-container">   
+    <div class="chat-messages">
+      <div *ngFor="let message of messageList" class="message" [ngClass]="(message.isCurrentUser ? 'currentUser' : '')">
+        <span *ngIf="message.data" class="d-block" [ngClass]="(message.isCurrentUser ? 'currentUser' : '')">{{message.data}}</span>        
+      </div>
+    </div>
+    
+    <div class="chat-input">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Send the message" [(ngModel)]="newMessage" (keyup)="$event.keyCode == 13 && sendMessage()" /> 
+        </mat-form-field>   
+    </div>
+
+  </div>

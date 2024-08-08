@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm">
+    <div class="d-flex flex-column login_container">
+    <h3>Login to access the app</h3>
+        <mat-form-field>
+            <mat-label> Email: </mat-label>
+            <input matInput type="text" [formControl]="loginForm.get('email')">
+            <mat-error *ngIf="loginForm.get('email')?.errors?.['email']"> Invalid E-Mail
+                Pattern
+            </mat-error>
+               
+        </mat-form-field>
+   
+        <mat-form-field>
+            <mat-label> Password: </mat-label>
+            <input matInput type="password" [formControl]="loginForm.get('password')">
+            <mat-error *ngIf="loginForm.get('password')?.errors"> Min length should be 6.
+            </mat-error>
+        </mat-form-field>
+     
+        <button mat-flat-button type="submit" [disabled]="!loginForm.valid" (click)="login()">Login!</button>        
+    </div>
+
+</form>

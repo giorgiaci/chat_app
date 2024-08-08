@@ -1,0 +1,13 @@
+<div class="d-flex flex-column align-items-center">
+    <ng-container *ngIf="!isUserLoggedIn; else userLoggedInTemplate">
+        <h1>Welcome to the auth app</h1>
+        <button mat-flat-button color="primary" (click)="navigateToLoginPage($event)">Login to start</button>    
+    </ng-container>
+    
+
+    <ng-template #userLoggedInTemplate>
+        <div class="d-flex flex-column align-items-center">            
+            <p>Hello {{user.username}}</p>
+        </div>
+    </ng-template>
+</div>

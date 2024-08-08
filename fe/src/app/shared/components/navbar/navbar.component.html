@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="d-flex justify-content-between">
+    <span role="link" routerLink="/" style="cursor: pointer;">Authentication app</span>
+    <button
+      mat-button
+      [attr.aria-label]="isUserLoggedIn ? 'Logout' : 'Login'"
+      (click)="goToLoginPage()"
+    >     
+      <span>{{isUserLoggedIn ? 'Logout' : 'Login'}}</span>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
